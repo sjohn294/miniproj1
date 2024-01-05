@@ -23,14 +23,34 @@ var playGame = function () {
         window.alert("It Was A Tie")
 
     } else if (
-    (userChoice === "ROCK" && computerChoice === "SCISSORS") ||
-    (userChoice === "PAPER" && computerChoice === "ROCK") ||
-    (userChoice === "SCISSORS" && computerChoice === "PAPER")
+        (userChoice === "ROCK" && computerChoice === "SCISSORS") ||
+        (userChoice === "PAPER" && computerChoice === "ROCK") ||
+        (userChoice === "SCISSORS" && computerChoice === "PAPER")
 
-) {
-wins++;
-window.alert("You Win!");
-}
+    ) {
+        wins++;
+        window.alert("You Win!");
+
+
+    } else {
+        losses++; 
+        window.alert("You lost!");
+    }
+
+    window.alert(
+        `
+      Stats:
+          Wins: ${wins}
+          Losses: ${losses}
+          Ties: ${ties}
+    `
+    );
+
+    var playAgain = window.confirm("Play again?");
+
+    if (playAgain === true) {
+        playGame();
+    }
 };
 
 playGame();
